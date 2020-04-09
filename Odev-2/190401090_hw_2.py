@@ -7,7 +7,7 @@ def dictionary_frequency_function(dict_list_a):
     dictionary_frequency_dict = {}
 
     for item in dict_list_a:
-        item=int(item)
+        item = int(item)
         if item in dictionary_frequency_dict:
             dictionary_frequency_dict[item] = dictionary_frequency_dict[item] + 1
         else:
@@ -34,7 +34,7 @@ def dictionary_mode_function(list_mode):
 
     for k_value in list_mode.keys():
         if list_mode[k_value] > least_frequency:
-            least_frequeny = list_mode[k_value]
+            least_frequency = list_mode[k_value]
             mode_value = k_value
 
     return mode_value,least_frequency
@@ -62,13 +62,13 @@ def find_median_value(median_list):
 
 
 
-with open(input+"input_hw_2.csv", "r") as dosya:
+with open(input+"input_hw_2.csv", "r") as file:
 
     a_values_array = []
-    b_values_array = dosya.read()
+    b_values_array = file.read()
     value_line = b_values_array.split(';')
     a_values_array.append(value_line)
-    tarih = []
+    date = []
     bol = []
 
     for f in range(3, len(value_line), 3):
