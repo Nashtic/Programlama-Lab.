@@ -2,87 +2,90 @@ import sys
 
 input,output=sys.argv[1],sys.argv[2]
 
-def dict_ile_frekans(list_1):
+def bubble_sort(bubble_list):
 
-    dict_frekans = {}
+    n = len(bubble_list)
 
-    for item in list_1:
+    for k in range(n):
+        for k in range(0, n - k - 1):
+            if bubble_list[k] > bubble_list[k + 1]:
+                bubble_list[k], bubble_list[k + 1] = bubble_list[k + 1], bubble_list[k]
+
+    return bubble_list
+
+def dictionary_frequency_function(dict_list_a):
+
+    dictionary_frequency_dict = {}
+
+    for item in dict_list_a:
         item=int(item)
-        if item in dict_frekans :
-            dict_frekans[item] = dict_frekans[item] + 1
+        if item in dictionary_frequency_dict:
+            dictionary_frequency_dict[item] = dictionary_frequency_dict[item] + 1
         else:
-            dict_frekans[item] = 1
+            dictionary_frequency_dict[item] = 1
 
-    print(dict_frekans)
-    return dict_frekans
+    print(dictionary_frequency_dict)
+    return dictionary_frequency_dict
 
-def bubble_sort(list_2):
 
-    n = len(list_2)
+def list_mean_function(list_mean):
 
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if list_2[j] > list_2[j + 1]:
-                list_2[j], list_2[j + 1] = list_2[j + 1], list_2[j]
+    total_value = 0
+    sample = 0
 
-    return list_2
+    for item in list_mean:
+        total_value += int(item)
+        sample += 1
+    return int(total_value/sample)
 
-def dict_ile_mod(my_hist_d):
+def dictionary_mode_function(list_mode):
 
-    max_frekans = -1
-    mod = -1
+    least_frequency = -1
+    mode_value = -1
 
-    for key_deger in my_hist_d.keys():
-        if my_hist_d[key_deger] > max_frekans:
-            max_frekans = my_hist_d[key_deger]
-            mod = key_deger
+    for k_value in list_mode.keys():
+        if list_mode[k_value] > least_frequency:
+            least_frequeny = list_mode[k_value]
+            mode_value = k_value
 
-    return mod,max_frekans
+    return mode_value,least_frequency
 
-def medyan_bul(dizi_1):
+def find_median_value(median_list):
 
-    dizi_1 = bubble_sort(dizi_1)
+    median_list = bubble_sort(median_list)
 
-    if len(dizi_1)%2 == 1:
-        orta = int(len(dizi_1)/2)+1
-        return dizi_1[orta-1]
+    if len(median_list)%2 == 1:
+        middle_value = int(len(median_list)/2)+1
+        return median_list[middle_value-1]
     else:
-        medyan1,medyan2=dizi_1[int(len(dizi_1)/2)],dizi_1[int(len(dizi_1)/2)-1]
-        return (medyan1+medyan2)/2
+        median_first,median_second = median_list[int(len(median_list)/2)],median_list[int(len(median_list)/2)-1]
+        return (median_first+median_second)/2
 
-def liste_ortalamasi(liste_1):
 
-    toplam = 0
-    value = 0
-
-    for item in liste_1:
-        toplam += int(item)
-        value += 1
-    return int(toplam/value)
 
 with open(input+"input_hw_2.csv", "r") as dosya:
 
-    veri = []
-    veri_1 = dosya.read()
-    veri_line = veri_1.split(';')
-    veri.append(veri_line)
+    a_values_array = []
+    b_values_array = dosya.read()
+    value_line = b_values_array.split(';')
+    a_values_array.append(value_line)
     tarih = []
     bol = []
 
-    for i in range(3, len(veri_line), 3):
-        bol.append(veri_line[i].split("-"))
+    for f in range(3, len(value_line), 3):
+        bol.append(value_line[f].split("-"))
 
-    tum_aylar = []
+    all_months = []
 
-    for i in range(len(bol)):
-        tum_aylar.append(int(bol[i][1]))
+    for f in range(len(bol)):
+        all_months.append(int(bol[f][1]))
 
-bubble_sort(tum_aylar)
-value_2 = dict_ile_frekans(tum_aylar)
-son_liste = [value_2[i] for i in value_2]
+bubble_sort(all_months)
+value_2 = dictionary_frequency_function(all_months)
+last_list = [value_2[f] for f in value_2]
 
 
-with open(output+"190401090_hw_2_output.txt", "w") as dosya:
+with open(output+"190401090_hw_2_output.txt", "w") as file:
 
-    dosya.write("Medyan :"+ "" + str(medyan_bul(son_liste))+"\n")
-    dosya.write("Ortalama:" + ""+ str(liste_ortalamasi(son_liste)))
+    file.write("Medyan :"+ "" + str(find_median_value(last_list))+"\n")
+    file.write("Ortalama:" + ""+ str(list_mean_function(last_list)))
