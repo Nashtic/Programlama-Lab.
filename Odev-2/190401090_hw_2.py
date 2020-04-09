@@ -2,11 +2,11 @@ import sys
 
 input,output=sys.argv[1],sys.argv[2]
 
-def dict_ile_frekans(list_2):
+def dict_ile_frekans(list_1):
 
     dict_frekans = {}
 
-    for item in list_2:
+    for item in list_1:
         item=int(item)
         if item in dict_frekans :
             dict_frekans[item] = dict_frekans[item] + 1
@@ -16,16 +16,16 @@ def dict_ile_frekans(list_2):
     print(dict_frekans)
     return dict_frekans
 
-def bubble_sort(list_1):
+def bubble_sort(list_2):
 
-    n = len(list_1)
+    n = len(list_2)
 
     for i in range(n):
         for j in range(0, n - i - 1):
-            if list_1[j] > list_1[j + 1]:
-                list_1[j], list_1[j + 1] = list_1[j + 1], list_1[j]
+            if list_2[j] > list_2[j + 1]:
+                list_2[j], list_2[j + 1] = list_2[j + 1], list_2[j]
 
-    return list_1
+    return list_2
 
 def dict_ile_mod(my_hist_d):
 
