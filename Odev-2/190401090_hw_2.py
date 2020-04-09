@@ -2,17 +2,6 @@ import sys
 
 input,output=sys.argv[1],sys.argv[2]
 
-def bubble_sort(bubble_list):
-
-    n = len(bubble_list)
-
-    for k in range(n):
-        for k in range(0, n - k - 1):
-            if bubble_list[k] > bubble_list[k + 1]:
-                bubble_list[k], bubble_list[k + 1] = bubble_list[k + 1], bubble_list[k]
-
-    return bubble_list
-
 def dictionary_frequency_function(dict_list_a):
 
     dictionary_frequency_dict = {}
@@ -27,16 +16,16 @@ def dictionary_frequency_function(dict_list_a):
     print(dictionary_frequency_dict)
     return dictionary_frequency_dict
 
+def bubble_sort(bubble_list):
 
-def list_mean_function(list_mean):
+    n = len(bubble_list)
 
-    total_value = 0
-    sample = 0
+    for k in range(n):
+        for j in range(0, n - k - 1):
+            if bubble_list[j] > bubble_list[j + 1]:
+                bubble_list[j], bubble_list[j + 1] = bubble_list[j + 1], bubble_list[j]
 
-    for item in list_mean:
-        total_value += int(item)
-        sample += 1
-    return int(total_value/sample)
+    return bubble_list
 
 def dictionary_mode_function(list_mode):
 
@@ -49,6 +38,16 @@ def dictionary_mode_function(list_mode):
             mode_value = k_value
 
     return mode_value,least_frequency
+
+def list_mean_function(list_mean):
+
+    total_value = 0
+    sample = 0
+
+    for item in list_mean:
+        total_value += int(item)
+        sample += 1
+    return int(total_value/sample)
 
 def find_median_value(median_list):
 
