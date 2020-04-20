@@ -17,13 +17,13 @@ import sympy as sym
 import matplotlib.pyplot as plt
 import sympy.plotting as syp
 
-lmbda = Symbol('lambda')            # Lambda'nın sembolizasyonu
-k = Symbol('k')                      # k kadar istenilen olay sayısı
+lmbda = Symbol('lambda')            # Lambda'nın sembolizasyonu & olayların ortalama değeri
+k = Symbol('k')                     # k'nın sembolizasyonu & olay sayısı
 
 
 part1 = lmbda**k                    # Lambda^k işleminin yapıldığı kısım.
 part2 = sym.exp(-lmbda)             # e^(-Lambda) işleminin yapıldığı kısım.
-part3 = sym.factorial(k)             # k! işleminin yapıldığı kısım.
+part3 = sym.factorial(k)            # k! işleminin yapıldığı kısım.
 
 
 poisson_distribution_func1 = part1*part2            # (Lambda^k)*(e^(-Lambda)) (bölümün üzerinde kalan kısmın işlemleri ve tanımlanması.)
