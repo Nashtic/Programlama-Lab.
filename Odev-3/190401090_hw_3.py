@@ -4,6 +4,11 @@
 @author : Selahattin Ahmed Atasoglu  190401090
 
 Subject : Poisson Distribution with Phyton (Using sympy and matplotlib libraries)
+
+Lamda belirli bir süre ya da aralıkta bir olayın kaç kez olduğunun ortalama değerini sağlar.
+Bu ortalama değerlerdeki verilere bakılarak diğer olayların olma ya da olabilme olasılıkların tahmin edildiği bir grafiktir.
+
+https://github.com/Nashtic/Programlama-Lab./blob/master/Odev-3/190401090_hw_3.py
 """
 
 from sympy import Symbol, factorial  # Kütüphanelerin import edilmesi.
@@ -28,7 +33,8 @@ poisson_distribution_func_total = poisson_distribution_func1/poisson_distributio
 
 pprint(poisson_distribution_func_total)         # Fonksiyonun günlük yaşamda kullandığımız şekilde yazımı.
 
-syp.plot(poisson_distribution_func_total.subs({lmbda:7}),(k,0,10),title="Poisson Distribution")            # sympy.plotting kütüphanesi ile grafiğin çizdirilmesi.
+syp.plot(poisson_distribution_func_total.subs({lmbda:7}),(k,0,10),title="Poisson Distribution")     # sympy.plotting kütüphanesi ile grafiğin çizdirilmesi.
+plt.show()
 
 x_values = []
 y_values = []
